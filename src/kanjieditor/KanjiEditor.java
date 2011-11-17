@@ -1,0 +1,99 @@
+package kanjieditor;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import vocab.Kanji;
+
+
+/**
+ * The kanji editor.
+ */
+public class KanjiEditor {
+	
+	/** The kanji list. */
+	public ArrayList<Kanji> klist;
+	
+	/** The graphical list. */
+	public GraphicalList glist;
+	
+	/**
+	 * Instantiates a new kanji editor.
+	 */
+	public KanjiEditor(){
+		klist = new ArrayList<Kanji>();
+		JFrame frame = new JFrame("Kanji editor");
+		frame.setResizable(false);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//adds the menu bar
+		JMenuBar menu = new JMenuBar();
+		frame.setJMenuBar(menu);
+		JMenu fileMenu = new JMenu("File");
+		fileMenu.add(new NewMenuItem(this));
+		fileMenu.add(new OpenMenuItem(this));
+		fileMenu.add(new SaveMenuItem(klist));
+		menu.add(fileMenu);
+		
+		//adds the editable properties
+		JPanel proppanel = new JPanel();
+		frame.add(proppanel, BorderLayout.EAST);
+		JTextField reading = new JTextField(15);
+		JTextField translation = new JTextField();
+
+		//adds the scrolling vocabulary list' menu item.
+		JPanel listpanel = new JPanel();
+		frame.add(listpanel, BorderLayout.WEST);
+		glist = new GraphicalList(klist, reading, translation);
+		JScrollPane scrollPane = new JScrollPane(glist);
+		scrollPane.setPreferredSize(new Dimension(200,400));
+		listpanel.add(scrollPane);
+		
+		proppanel.setLayout(new BoxLayout(proppanel, BoxLayout.PAGE_AXIS));
+		proppanel.add(new JLabel("Reading"));
+		proppanel.add(reading);
+		proppanel.add(new JLabel("Translation"));
+		proppanel.add(translation);
+		Dimension fbox = new Dimension(5,300);
+		proppanel.add(new Box.Filler(fbox, fbox, fbox));
+		JPanel butpanel = new JPanel();
+		JButton neww = new NewButton(glist);
+		butpanel.add(neww);
+		JButton delete = new DeleteButton(glist);
+		butpanel.add(delete);
+		proppanel.add(butpanel);
+		
+		frame.pack();
+	    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    int w = frame.getSize().width;
+	    int h = frame.getSize().height;
+	    int x = (dim.width-w)/2;
+	    int y = (dim.height-h)/2;
+	    frame.setLocation(x, y);
+		frame.setVisible(true);
+	}
+
+	/**
+	 * Loads a new kanji list into the editor.
+	 *
+	 * @param newlist the new list
+	 */
+	public void load(ArrayList<Kanji> newlist) {
+		klist.clear();
+		klist.addAll(newlist);
+		glist.updateList();
+		glist.clearFields();
+	}
+	
+	
+}
