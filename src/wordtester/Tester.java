@@ -1,5 +1,4 @@
 package wordtester;
-import vocab.Word;
 
 
 /**

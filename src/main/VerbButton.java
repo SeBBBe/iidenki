@@ -3,20 +3,7 @@ import grammar.VerbConjugator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import kanjitester.KanjiTester;
-import vocab.Kanji;
-import vocab.Word;
-import wordtester.DynamicTest;
-import wordtester.SimpleTest;
-import wordtester.Tester;
 
 
 /**

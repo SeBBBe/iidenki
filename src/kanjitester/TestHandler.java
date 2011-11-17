@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import vocab.Kanji;
-import vocab.Word;
 import wordtester.Tester;
 
 

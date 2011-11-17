@@ -1,9 +1,7 @@
 package sheets;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,8 +9,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import vocab.Kanji;
-import wordtester.DynamicTest;
-import wordtester.SimpleTest;
 
 public class KanjiSheets {
 	public KanjiSheets(){

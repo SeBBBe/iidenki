@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import vocab.RightWrong;
-import vocab.Word;
 
 
 /**

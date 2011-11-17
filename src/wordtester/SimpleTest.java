@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 import vocab.RightWrong;
-import vocab.Word;
 
 /**
  * Conducts a test of all words in the vocabulary, in random order
