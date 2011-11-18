@@ -27,6 +27,8 @@ public class SubMenu implements ActionListener{
 	JPanel panel;
 	String source;
 	ButtonGroup bg;
+	SubMenuEntry ent;
+	String selected;
 
 	public SubMenu(ArrayList<SubMenuEntry> entries){
 		this.entries = entries;
@@ -117,12 +119,18 @@ public class SubMenu implements ActionListener{
 
 	private void executeSelection() {
 		SubMenuEntry entry = null;
-		String selected = bg.getSelection().getActionCommand();
-		for (SubMenuEntry e : entries){
-			if (selected.equals(e.rb.getText())){
-				e.run();
-				break;
+		selected = bg.getSelection().getActionCommand();
+		Runnable runSelection = new Runnable(){
+			public void run(){
+				for (SubMenuEntry e : entries){
+					if (selected.equals(e.rb.getText())){
+						frame.dispose();
+						e.run();
+						break;
+					}
+				}
 			}
-		}
+		};
+		new Thread(runSelection).run();
 	}
 }
