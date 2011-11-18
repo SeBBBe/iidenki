@@ -47,13 +47,9 @@ public class MainMenu {
 		JPanel butpanel = new JPanel();
 		butpanel.setLayout(new BoxLayout(butpanel, BoxLayout.PAGE_AXIS));
 		panel.add(butpanel);
-		butpanel.add(new VocabTestButton());
-		butpanel.add(new WordEditorButton());
-		butpanel.add(new KanjiTestButton());
-		butpanel.add(new KanjiEditorButton());
-		butpanel.add(new VerbButton());
-		butpanel.add(new KanjiSheetButton());
-		//butpanel.add(new FlashButton());
+		butpanel.add(new KanjiSubmenuButton());
+		butpanel.add(new VocabSubmenuButton());
+		butpanel.add(new GrammarSubmenuButton());
 		
 		frame.pack();
 	    frame.setLocationRelativeTo(null);

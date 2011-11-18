@@ -2,7 +2,6 @@ package wordeditor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -21,7 +20,7 @@ import javax.swing.JTextField;
 /**
  * The main Word Editor application
  */
-public class WordEditor {
+public class WordEditor{
 	
 	/** The WordList */
 	ArrayList wlist;
@@ -120,7 +119,5 @@ public class WordEditor {
 		wlist.addAll(newlist);
 		glist.updateList();
 		glist.clearFields();
-	}
-	
-	
+	}	
 }
