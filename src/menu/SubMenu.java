@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingUtilities;
 
+/**
+ * A modular menu system that accepts entries with text, image and a command to run
+ */
 public class SubMenu implements ActionListener{
 	
 	JLabel picLabel;
@@ -30,6 +33,11 @@ public class SubMenu implements ActionListener{
 	SubMenuEntry ent;
 	String selected;
 
+	/**
+	 * Instantiates a new modular sub menu.
+	 *
+	 * @param entries the menu entries to display
+	 */
 	public SubMenu(ArrayList<SubMenuEntry> entries){
 		this.entries = entries;
 		init();
@@ -82,6 +90,9 @@ public class SubMenu implements ActionListener{
 		frame.setVisible(true);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() instanceof JButton){
 			executeSelection();

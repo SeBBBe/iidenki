@@ -6,13 +6,22 @@ import java.io.IOException;
 import java.util.List;
 import vocab.Kanji;
 
+/**
+ * Prints HTML kanji sheets
+ */
 public class KanjiSheetHTMLPrinter {
+	
 	BufferedWriter out;
 	int currentrow;
 	private static int kanjisize = 6;
 	private static int kanjiwidthfactor = 10;
 	private static int pagewidth = 75;
 	
+	/**
+	 * Instantiates a new kanji sheet html printer.
+	 *
+	 * @param file the file to write to
+	 */
 	public KanjiSheetHTMLPrinter(File file){
 		currentrow = 0;
 		FileWriter fstream = null;
@@ -44,6 +53,9 @@ public class KanjiSheetHTMLPrinter {
 	}
 	
 	
+	/**
+	 * Ends the HTML notation and closes the file
+	 */
 	public void close(){
 		try {
 			out.write("</body>\n</html>");
@@ -53,6 +65,13 @@ public class KanjiSheetHTMLPrinter {
 		}
 	}
 	
+	/**
+	 * Inserts the specified kanji or kanji compound into the sheet
+	 *
+	 * @param kanji the kanji object to insert
+	 * @param eng true, to print the English translation
+	 * @param read true, to print the kanji reading
+	 */
 	public void generateEntry(Kanji kanji, boolean eng, boolean read){
 		try{
 			int instlength = 0;
@@ -90,12 +109,24 @@ public class KanjiSheetHTMLPrinter {
 		}
 	}
 	
+	/**
+	 * Add kanji and kanji compounds from a list
+	 *
+	 * @param list the list to add
+	 * @param eng true, to print the English translation
+	 * @param read true, to print the kanji reading
+	 */
 	public void generateEntries(List<Kanji> list, boolean eng, boolean read){
 		for (Kanji k : list){
 			generateEntry(k, eng, read);
 		}
 	}
 	
+	/**
+	 * Adds a visible text into the HTML document
+	 *
+	 * @param text the text to add
+	 */
 	public void print(String text){
 		try {
 			out.write(text + "<br>\n");

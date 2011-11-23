@@ -12,11 +12,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * The main menu.
  */
 public class MainMenu {
 
+	/** Set true if packaging a JAR, will make pictures work */
 	public static final boolean IS_JAR = false;
 	
 	/**

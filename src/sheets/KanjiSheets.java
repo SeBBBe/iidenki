@@ -10,7 +10,14 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import vocab.Kanji;
 
+/**
+ * A creation wizard for kanji sheets
+ */
 public class KanjiSheets {
+	
+	/**
+	 * Proceeds to launch a creation wizard and creates a kanji sheet
+	 */
 	public KanjiSheets(){
 		String[] possibilities = {"Sheet including all kanji", "Sheet including the latest kanji", "Sheet with randomly selected kanji", "Random sheet (later = more likely)"};
 		Object[] inc = new Object[3];

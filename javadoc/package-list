@@ -1,7 +1,8 @@
 grammar
 kanjieditor
 kanjitester
-main
+menu
+sheets
 vocab
 wordeditor
 wordtester
