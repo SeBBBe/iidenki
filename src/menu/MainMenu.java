@@ -11,8 +11,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The main menu.
  */
@@ -30,7 +28,6 @@ public class MainMenu {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel = new JPanel();
 		frame.add(panel);
-		//panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 		
 		BufferedImage myPicture = null;
 		try {

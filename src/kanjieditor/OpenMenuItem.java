@@ -44,8 +44,7 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 	    ArrayList<Kanji> newlist;
 	    if (file == null){return;}
 		try{
-			ObjectInputStream in=new ObjectInputStream(new FileInputStream(file));
-			newlist =(ArrayList<Kanji>)in.readObject();
+			newlist = KanjiEditorControl.loadFromFile(file);
 			editor.load(newlist);
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Error loading file!");

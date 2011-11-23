@@ -9,6 +9,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import vocab.Word;
+
 
 /**
  * The open menu item.
@@ -36,11 +38,10 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 	    chooser.setDialogTitle("Open vocabulary list");
 	    chooser.showOpenDialog(null);
 	    File file = chooser.getSelectedFile();
-	    ArrayList newlist;
+	    ArrayList<Word> newlist;
 	    if (file == null){return;}
 		try{
-			ObjectInputStream in=new ObjectInputStream(new FileInputStream(file));
-			newlist =(ArrayList)in.readObject();
+			newlist = WordEditorControl.loadFromFile(file);
 			editor.load(newlist);
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Error loading file!");

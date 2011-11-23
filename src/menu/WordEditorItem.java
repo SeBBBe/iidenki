@@ -27,6 +27,6 @@ public class WordEditorItem extends SubMenuEntry{
 	}
 
 	public void run(){
-		new WordEditor(new ArrayList<Word>());
+		new WordEditor();
 	}
 }

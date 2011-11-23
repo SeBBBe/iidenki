@@ -24,6 +24,6 @@ public class AboutMenuItem extends JMenuItem implements ActionListener{
 	 * Shows the about box
 	 */
 	public void actionPerformed(ActionEvent arg0) {
-		JOptionPane.showMessageDialog(null, "iidenki version 0.1\nInteractive language training software suite\nDeveloped by Sebastian Fabian");
+		JOptionPane.showMessageDialog(null, "iidenki developer build\nInteractive language training software suite\nDeveloped by Sebastian Fabian");
 	}
 }

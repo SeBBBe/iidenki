@@ -43,8 +43,7 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 		File file = chooser.getSelectedFile();
 		if (file == null){return;}
 		try{
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-			out.writeObject(klist);
+			KanjiEditorControl.saveToFile(file, klist);
 		}catch(Exception f){
 			f.printStackTrace();
 			JOptionPane.showMessageDialog(null, "An error occured while saving! List not saved.");

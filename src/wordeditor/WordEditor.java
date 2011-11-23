@@ -16,6 +16,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import vocab.Word;
+
 
 /**
  * The main Word Editor application
@@ -23,7 +25,7 @@ import javax.swing.JTextField;
 public class WordEditor{
 	
 	/** The WordList */
-	ArrayList wlist;
+	ArrayList<Word> wlist;
 	
 	/** The GraphicalList */
 	GraphicalList glist;
@@ -33,11 +35,10 @@ public class WordEditor{
 	 *
 	 * @param wlist the WordList to edit
 	 */
-	public WordEditor(ArrayList wlist){
-		this.wlist = wlist;
+	public WordEditor(){
 		JFrame frame = new JFrame("Vocabulary editor");
 		frame.setResizable(false);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.wlist = new ArrayList<Word>();
 		
 		//adds the menu bar
 		JMenuBar menu = new JMenuBar();

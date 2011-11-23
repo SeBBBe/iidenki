@@ -9,20 +9,22 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import vocab.Word;
+
 
 /**
  * The save menu item.
  */
 public class SaveMenuItem extends JMenuItem implements ActionListener {
 	
-	private ArrayList wlist;
+	private ArrayList<Word> wlist;
 	
 	/**
 	 * Instantiates a new save menu item.
 	 *
 	 * @param wlist the WordList
 	 */
-	public SaveMenuItem(ArrayList wlist){
+	public SaveMenuItem(ArrayList<Word> wlist){
 		super("Save as");
 		this.wlist = wlist;
 		addActionListener(this);
@@ -38,8 +40,7 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 		File file = chooser.getSelectedFile();
 		if (file == null){return;}
 		try{
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-			out.writeObject(wlist);
+			WordEditorControl.saveToFile(file, wlist);
 		}catch(Exception f){
 			f.printStackTrace();
 			JOptionPane.showMessageDialog(null, "An error occured while saving! List not saved.");
