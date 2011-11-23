@@ -17,6 +17,8 @@ import javax.swing.JPanel;
  */
 public class MainMenu {
 
+	public static final boolean IS_JAR = false;
+	
 	/**
 	 * Instantiates a new main menu.
 	 */
@@ -30,8 +32,8 @@ public class MainMenu {
 		
 		BufferedImage myPicture = null;
 		try {
-			//myPicture = ImageIO.read(new File("iidenki.gif"));
-			myPicture = ImageIO.read(this.getClass().getResource("/iidenki.gif"));
+			if (!IS_JAR) {myPicture = ImageIO.read(new File("iidenki.gif"));}
+			if (IS_JAR) {myPicture = ImageIO.read(this.getClass().getResource("/iidenki.gif"));}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
