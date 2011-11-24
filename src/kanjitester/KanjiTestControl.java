@@ -9,16 +9,19 @@ import javax.swing.JOptionPane;
 import vocab.Kanji;
 import vocab.Word;
 import wordtester.DynamicTest;
+import wordtester.LatestTest;
 import wordtester.SimpleTest;
 import wordtester.Tester;
 
 public class KanjiTestControl {
 	public static void doTest(){
-		String[] possibilities = {"Test all kanji", "Test the most difficult kanji"};
-		Object[] inc = new Object[2];
+		String[] possibilities = {"Test all kanji", "Test the most difficult kanji", "Test the latest kanji"};
+		Object[] inc = new Object[3];
 		inc[0] = "What kind of test do you want to conduct?";
 		JCheckBox reset = new JCheckBox("Reset scores");
+		JCheckBox eng = new JCheckBox("Use English translation instead of reading");
 		inc[1] = reset;
+		inc[2] = eng;
 		String s = (String)JOptionPane.showInputDialog(
 		                    null,
 		                    inc,
@@ -47,8 +50,10 @@ public class KanjiTestControl {
 				test = new SimpleTest<Kanji>(newlist);
 			}else if(s == possibilities[1]){
 				test = new DynamicTest<Kanji>(newlist);
+			}else if(s == possibilities[2]){
+				test = new LatestTest<Kanji>(newlist);
 			}
-			new KanjiTester(newlist, test, file);
+			new KanjiTester(newlist, test, file, eng.isSelected());
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Error loading file!");
 			e.printStackTrace();

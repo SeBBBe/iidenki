@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+
+import vocab.Kanji;
 import vocab.Word;
 
 public class WordTestControl {
 	public static void doTest(){
-		String[] possibilities = {"Test all words", "Test the most difficult words"};
+		String[] possibilities = {"Test all words", "Test the most difficult words", "Test the latest words"};
 		Object[] inc = new Object[3];
 		inc[0] = "What kind of test do you want to conduct?";
 		JCheckBox reset = new JCheckBox("Reset scores");
@@ -46,6 +48,8 @@ public class WordTestControl {
 				test = new SimpleTest<Word>(newlist);
 			}else if(s == possibilities[1]){
 				test = new DynamicTest<Word>(newlist);
+			}else if(s == possibilities[2]){
+				test = new LatestTest<Word>(newlist);
 			}
 			new WordTester(newlist, test, file, testtype.isSelected());
 		}catch(Exception e){

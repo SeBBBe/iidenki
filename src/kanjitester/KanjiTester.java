@@ -22,7 +22,7 @@ public class KanjiTester extends JFrame{
 	public ArrayList<Kanji> klist;
 	public File file;
 
-	public KanjiTester(ArrayList<Kanji> klist, Tester tester, File file){
+	public KanjiTester(ArrayList<Kanji> klist, Tester tester, File file, boolean eng){
 		super("Kanji test");
 		this.file = file;
 		this.klist = klist;
@@ -35,7 +35,7 @@ public class KanjiTester extends JFrame{
 		panel.add(new JLabel("What is the reading of this kanji (compound)?"));
 		JLabel wt = new JLabel();
 		Font f = wt.getFont();
-		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+24);
+		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+36);
 		wt.setFont(f2);
 		panel.add(wt);
 		JButton[] buttons = new JButton[5];
@@ -45,7 +45,7 @@ public class KanjiTester extends JFrame{
 		}
 
 		JLabel stats = new JLabel("はじめましょう！");
-		TestHandler th = new TestHandler(klist, wt, stats, this, tester, buttons);
+		TestHandler th = new TestHandler(klist, wt, stats, this, tester, buttons, eng);
 		panel.add(stats);
 		
 		

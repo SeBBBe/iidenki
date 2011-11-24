@@ -1,37 +1,29 @@
 package wordtester;
+
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Random;
+
 import javax.swing.JOptionPane;
+
 import vocab.RightWrong;
 
-
 /**
- * Conducts a dynamic test, testing the n most difficult words
- * based on previous performance by the user.
+ * Conducts a test of the latest items
  */
-public class DynamicTest<E extends RightWrong> implements Tester{
+public class LatestTest<E extends RightWrong> implements Tester{
 
 	private ArrayList<E> testlist;
 	private int currentindex;
 	private E currentword;
 	
 	/**
-	 * Instantiates a new dynamic test.
+	 * Instantiates a new latest test.
 	 *
-	 * @param wlist the WordList containing the complete vocabulary
+	 * @param wlist the WordList
 	 */
-	public DynamicTest(Collection wlist){
-		testlist = new ArrayList<E>();
-		buildList(wlist);
-		currentindex = -1;
-		currentword = null;
-	}
-
-	private void buildList(Collection wlist) {
-		testlist.addAll((Collection<? extends E>) wlist);
-		String num = JOptionPane.showInputDialog(null, "This test will present you with the most difficult words based on your\nprevious performance. How many words would you like to type?");
+	public LatestTest(ArrayList<E> wlist){
+		String num = JOptionPane.showInputDialog(null, "This test will present you with the latest words. How many words would you like to type?");
 		int n = 10;
 		try{
 			n = Integer.parseInt(num);
@@ -39,20 +31,20 @@ public class DynamicTest<E extends RightWrong> implements Tester{
 			JOptionPane.showMessageDialog(null, "Invalid value. Will test 10 words.");
 			n = 10;
 		}
-		if (n > testlist.size()){
+		if (n > wlist.size()){
 			JOptionPane.showMessageDialog(null, "The number is larger than the size of the list! All words will be tested.");
-			n = testlist.size();
+			n = wlist.size();
 		}
 		if (n < 1){
 			JOptionPane.showMessageDialog(null, "Invalid value. Will test 10 words.");
 			n = 10;
 		}
-		Collections.sort(testlist);
-		ArrayList<E> testlist2 = new ArrayList<E>();
+		int size = wlist.size();
+		int start = size -n;
+		testlist = new ArrayList<E>();
 		for (int i = 0; i < n; i++){
-			testlist2.add(testlist.get(i));
+			testlist.add(wlist.get(i+start));
 		}
-		testlist = testlist2;
 	}
 	
 	/* (non-Javadoc)

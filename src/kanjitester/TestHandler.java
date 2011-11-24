@@ -29,6 +29,7 @@ public class TestHandler implements ActionListener {
 	private Tester tester;
 	private ArrayList<Kanji> wlist;
 	private JButton[] buttons;
+	private boolean eng;
 	
 	/**
 	 * Conducts the test apart from what the Tester does
@@ -40,13 +41,14 @@ public class TestHandler implements ActionListener {
 	 * @param tester the tester to use for this test
 	 * @param buttons 
 	 */
-	public TestHandler(ArrayList<Kanji> wlist, JLabel wt, JLabel stats, KanjiTester kanjiTester, Tester tester, JButton[] buttons){
+	public TestHandler(ArrayList<Kanji> wlist, JLabel wt, JLabel stats, KanjiTester kanjiTester, Tester tester, JButton[] buttons, boolean eng){
 		this.wt = wt;
 		this.stats = stats;
 		this.kanjiTester = kanjiTester;
 		this.wlist = wlist;
 		this.tester = tester;
 		this.buttons = buttons;
+		this.eng = eng;
 		currentindex = -1;
 		correct = 0;
 		total = 0;
@@ -79,10 +81,13 @@ public class TestHandler implements ActionListener {
 		Random generator = new Random();
 		for (int i = 0; i < 5; i++){
 			int index = generator.nextInt(testlist.size());
-			buttons[i].setText(testlist.get(index).reading);
+			if (eng){buttons[i].setText(testlist.get(index).translation);}
+			else{buttons[i].setText(testlist.get(index).reading);}
 		}
 		int correctbutton = generator.nextInt(5);
 		buttons[correctbutton].setText(currentword.reading);
+		if (eng){buttons[correctbutton].setText(currentword.translation);}
+		else{buttons[correctbutton].setText(currentword.reading);}
 		total++;
 	}
 

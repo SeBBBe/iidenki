@@ -42,8 +42,18 @@ public class Kanji extends RightWrong implements Serializable {
 		return kanji;
 	}
 
+	/**
+	 * Check whether a guess is correct or not
+	 *
+	 * @param text the guess
+	 * @return true, if the answer is correct
+	 */
 	public boolean check(String text) {
-		return text.equals(reading);
+		if (text.equals(reading)){
+			return true;
+		}else{
+			return text.equals(translation);
+		}
 	}
 	
 	/* (non-Javadoc)
