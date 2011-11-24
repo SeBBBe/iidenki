@@ -38,7 +38,7 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 		JFileChooser chooser = new JFileChooser();
-		chooser.setDialogTitle("Save vocabulary list");
+		chooser.setDialogTitle("Save kanji list");
 		chooser.showSaveDialog(null);
 		File file = chooser.getSelectedFile();
 		if (file == null){return;}

@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class MainMenu {
 
 	/** Set true if packaging a JAR, will make pictures work */
-	public static final boolean IS_JAR = false;
+	public static final boolean IS_JAR = true;
 	
 	/**
 	 * Instantiates a new main menu.

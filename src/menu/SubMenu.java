@@ -112,8 +112,8 @@ public class SubMenu implements ActionListener{
 				}
 				BufferedImage myPicture = null;
 				try {
-					myPicture = ImageIO.read(entry.getPic());
-					//myPicture = ImageIO.read(entry.getJARPic());
+					if (!MainMenu.IS_JAR) {myPicture = ImageIO.read(entry.getPic());}
+					if (MainMenu.IS_JAR) {myPicture = ImageIO.read(entry.getJARPic());}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

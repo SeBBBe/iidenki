@@ -38,7 +38,7 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 	    JFileChooser chooser = new JFileChooser();
-	    chooser.setDialogTitle("Open vocabulary list");
+	    chooser.setDialogTitle("Open kanji list");
 	    chooser.showOpenDialog(null);
 	    File file = chooser.getSelectedFile();
 	    ArrayList<Kanji> newlist;
