@@ -30,13 +30,11 @@ public class DeleteButton extends JButton implements ActionListener{
 
 	/**
 	 * Deletes the selected word from the GraphicalList view.
-	 *
-	 * @param arg0 the arg0
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 		int index = glist.getSelectedIndex();
 		if (index != -1){
-			Kanji kanji = glist.klist.get(index);
+			Kanji kanji = glist.klist.get(glist.reverseIndex(index));
 			int confirm = JOptionPane.showConfirmDialog(null, "Delete the kanji '" + kanji + "'?", "Confirm deletion", JOptionPane.YES_NO_OPTION);
 				if (confirm == 0){
 					glist.deleteWord(index);

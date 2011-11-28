@@ -1,6 +1,8 @@
 package kanjieditor;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
@@ -38,13 +40,14 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * @param translation the translation
 	 */
 	public GraphicalList(ArrayList<Kanji> klist, JTextField reading, JTextField translation){
-		super(klist.toArray());
+		super();
 		Font f = getFont();
 		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+16);
 		setFont(f2);
 		this.klist = klist;
 		this.reading = reading;
 		this.translation = translation;
+		updateList();
 		addListSelectionListener(this);
 		reading.getDocument().addDocumentListener(this);
 		translation.getDocument().addDocumentListener(this);
@@ -58,8 +61,8 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 		locked = true;
 		int index = getSelectedIndex();
 		if (index != -1){
-			reading.setText(klist.get(index).reading);
-			translation.setText(klist.get(index).translation);
+			reading.setText(klist.get(reverseIndex(index)).reading);
+			translation.setText(klist.get(reverseIndex(index)).translation);
 		}
 		locked = false;
 	}
@@ -76,7 +79,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	public void insertUpdate(DocumentEvent arg0) {
 		if (!locked){
 			int index = getSelectedIndex();
-			Kanji changed = klist.get(index);
+			Kanji changed = klist.get(reverseIndex(index));
 			changed.reading = reading.getText();
 			changed.translation = translation.getText();
 		}
@@ -98,7 +101,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 		locked = true;
 		klist.add(newkanji);
 		updateList();
-		setSelectedIndex(klist.size()-1);
+		setSelectedIndex(0);
 		locked = false;
 	}
 
@@ -108,7 +111,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * @param index the index of the word
 	 */
 	public void deleteWord(int index) {
-		klist.remove(index);
+		klist.remove(reverseIndex(index));
 		updateList();
 	}
 	
@@ -126,6 +129,13 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * Update list with the kanji list.
 	 */
 	public void updateList() {
-		setListData(klist.toArray());
+		ArrayList list2 = new ArrayList();
+		list2.addAll(klist);
+		Collections.reverse(list2);
+		setListData(list2.toArray());
+	}
+	
+	public int reverseIndex(int index){
+		return klist.size() - index - 1;
 	}
 }
