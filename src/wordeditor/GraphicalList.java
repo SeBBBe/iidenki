@@ -2,6 +2,8 @@ package wordeditor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import javax.swing.JList;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -35,12 +37,13 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * @param buttonlist list of radio buttons to watch
 	 */
 	public GraphicalList(ArrayList wlist, JTextField romaji, JTextField kana, JTextField kanji, JRadioButton[] buttonlist){
-		super(wlist.toArray());
+		super();
 		this.wlist = wlist;
 		this.romaji = romaji;
 		this.kana = kana;
 		this.kanji = kanji;
 		this.buttonlist = buttonlist;
+		updateList();
 		addListSelectionListener(this);
 		romaji.getDocument().addDocumentListener(this);
 		kana.getDocument().addDocumentListener(this);
@@ -58,10 +61,10 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 		locked = true;
 		int index = getSelectedIndex();
 		if (index != -1){
-			romaji.setText(((Word) wlist.get(index)).getRomaji());
-			kana.setText(((Word) wlist.get(index)).getKana());
-			kanji.setText(((Word) wlist.get(index)).getKanji());
-			String type = ((Word)wlist.get(index)).type;
+			romaji.setText(((Word) wlist.get(reverseIndex(index))).getRomaji());
+			kana.setText(((Word) wlist.get(reverseIndex(index))).getKana());
+			kanji.setText(((Word) wlist.get(reverseIndex(index))).getKanji());
+			String type = ((Word)wlist.get(reverseIndex(index))).type;
 			if (type.equals("noun")){
 				buttonlist[0].setSelected(true);
 			}
@@ -96,7 +99,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	public void insertUpdate(DocumentEvent arg0) {
 		if (!locked){
 			int index = getSelectedIndex();
-			Word changed = (Word) wlist.get(index);
+			Word changed = (Word) wlist.get(reverseIndex(index));
 			changed.setRomaji(romaji.getText());
 			changed.setKana(kana.getText());
 			changed.setKanji(kanji.getText());
@@ -119,7 +122,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 		locked = true;
 		wlist.add(newword);
 		updateList();
-		setSelectedIndex(wlist.size()-1);
+		setSelectedIndex(0);
 		locked = false;
 	}
 
@@ -129,7 +132,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * @param index the index of the word
 	 */
 	public void deleteWord(int index) {
-		wlist.remove(index);
+		wlist.remove(reverseIndex(index));
 		updateList();
 	}
 	
@@ -143,17 +146,24 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 		kanji.setText("");
 		locked = false;
 	}
+	
+	public int reverseIndex(int index){
+		return wlist.size() - index - 1;
+	}
 
 	/**
 	 * Update list with the WordList.
 	 */
 	public void updateList() {
-		setListData(wlist.toArray());
+		ArrayList list2 = new ArrayList();
+		list2.addAll(wlist);
+		Collections.reverse(list2);
+		setListData(list2.toArray());
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		int index = getSelectedIndex();
-		Word changed = (Word) wlist.get(index);
+		Word changed = (Word) wlist.get(reverseIndex(index));
 		changed.type = arg0.getActionCommand();
 	}
 }

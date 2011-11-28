@@ -32,7 +32,7 @@ public class DeleteButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		int index = glist.getSelectedIndex();
 		if (index != -1){
-			Word word = (Word) glist.wlist.get(index);
+			Word word = (Word) glist.wlist.get(glist.reverseIndex(index));
 			int confirm = JOptionPane.showConfirmDialog(null, "Delete the word '" + word + "'?", "Confirm deletion", JOptionPane.YES_NO_OPTION);
 				if (confirm == 0){
 					glist.deleteWord(index);
