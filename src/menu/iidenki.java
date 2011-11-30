@@ -1,7 +1,5 @@
 package menu;
-
-import java.io.File;
-import java.util.ArrayList;
+import javax.swing.UIManager;
 
 /**
  * main application class
@@ -14,6 +12,17 @@ public class iidenki {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args){
+		setStyle();
 		new MainMenu();
+	}
+
+	private static void setStyle() {
+		try {
+        UIManager.setLookAndFeel(
+        	UIManager.getSystemLookAndFeelClassName());
+	    } 
+	    catch (Exception e){
+	    	e.printStackTrace();
+	    }
 	}
 }

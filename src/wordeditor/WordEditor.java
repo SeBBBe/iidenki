@@ -80,6 +80,9 @@ public class WordEditor{
 		
 		Font f = kanji.getFont();
 		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+16);
+		if (System.getProperty("os.name").toLowerCase().equals("linux")){ //linux default font doesn't work for kanji in ubuntu, change to java default
+			f2 = new Font("Dialog", f.getStyle(), f.getSize()+16);
+		}
 		kanji.setFont(f2);
 		proppanel.setLayout(new BoxLayout(proppanel, BoxLayout.PAGE_AXIS));
 		proppanel.add(new JLabel("Romaji writing"));
