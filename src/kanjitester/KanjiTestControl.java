@@ -13,7 +13,14 @@ import wordtester.LatestTest;
 import wordtester.SimpleTest;
 import wordtester.Tester;
 
+/**
+ * Control object for launching kanji quiz
+ */
 public class KanjiTestControl {
+	
+	/**
+	 * Do test.
+	 */
 	public static void doTest(){
 		String[] possibilities = {"Test all kanji", "Test the most difficult kanji", "Test the latest kanji"};
 		Object[] inc = new Object[3];
@@ -60,6 +67,11 @@ public class KanjiTestControl {
 		}
 	}
 	
+	/**
+	 * Reset score
+	 *
+	 * @param newlist the list to reset
+	 */
 	private static void resetList(ArrayList<Kanji> newlist) {
 		int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to reset the scores in this list?\nThis information is used to determine which kanji are the most difficult.", "Confirm reset", JOptionPane.YES_NO_OPTION);
 		if (confirm == 0){

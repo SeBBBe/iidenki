@@ -45,8 +45,8 @@ public class SubMenu implements ActionListener{
 		
 		BufferedImage myPicture = null;
 		try {
-			if (!MainMenu.IS_JAR) {myPicture = ImageIO.read(entries.get(0).getPic());}
-			if (MainMenu.IS_JAR) {myPicture = ImageIO.read(entries.get(0).getJARPic());}
+			if (!iidenki.IS_JAR) {myPicture = ImageIO.read(entries.get(0).getPic());}
+			if (iidenki.IS_JAR) {myPicture = ImageIO.read(entries.get(0).getJARPic());}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -112,8 +112,8 @@ public class SubMenu implements ActionListener{
 				}
 				BufferedImage myPicture = null;
 				try {
-					if (!MainMenu.IS_JAR) {myPicture = ImageIO.read(entry.getPic());}
-					if (MainMenu.IS_JAR) {myPicture = ImageIO.read(entry.getJARPic());}
+					if (!iidenki.IS_JAR) {myPicture = ImageIO.read(entry.getPic());}
+					if (iidenki.IS_JAR) {myPicture = ImageIO.read(entry.getJARPic());}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

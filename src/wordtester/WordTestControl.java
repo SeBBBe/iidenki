@@ -10,7 +10,14 @@ import javax.swing.JOptionPane;
 import vocab.Kanji;
 import vocab.Word;
 
+/**
+ * Control object for vocab quiz
+ */
 public class WordTestControl {
+	
+	/**
+	 * Do test.
+	 */
 	public static void doTest(){
 		String[] possibilities = {"Test all words", "Test the most difficult words", "Test the latest words"};
 		Object[] inc = new Object[3];
@@ -58,6 +65,11 @@ public class WordTestControl {
 		}
 	}
 	
+	/**
+	 * Reset scores
+	 *
+	 * @param newlist the list to reset
+	 */
 	private static void resetList(ArrayList<Word> newlist) {
 		int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to reset the scores in this list?\nThis information is used to determine which words are the most difficult.", "Confirm reset", JOptionPane.YES_NO_OPTION);
 		if (confirm == 0){

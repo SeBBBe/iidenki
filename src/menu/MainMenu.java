@@ -15,9 +15,6 @@ import javax.swing.JPanel;
  * The main menu.
  */
 public class MainMenu {
-
-	/** Set true if packaging a JAR, will make pictures work */
-	public static final boolean IS_JAR = false;
 	
 	/**
 	 * Instantiates a new main menu.
@@ -31,8 +28,8 @@ public class MainMenu {
 		
 		BufferedImage myPicture = null;
 		try {
-			if (!IS_JAR) {myPicture = ImageIO.read(new File("iidenki.gif"));}
-			if (IS_JAR) {myPicture = ImageIO.read(this.getClass().getResource("/iidenki.gif"));}
+			if (!iidenki.IS_JAR) {myPicture = ImageIO.read(new File("iidenki.gif"));}
+			if (iidenki.IS_JAR) {myPicture = ImageIO.read(this.getClass().getResource("/iidenki.gif"));}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
