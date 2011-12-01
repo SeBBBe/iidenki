@@ -74,7 +74,6 @@ public class KanjiEditor {
 		butpanel.add(neww);
 		JButton delete = new DeleteButton(glist);
 		butpanel.add(delete);
-		proppanel.add(butpanel);
 		sidepanel.add(butpanel);
 		
 		frame.pack();
