@@ -1,5 +1,5 @@
 package menu;
-import wordtester.WordTestControl;
+import wordtester.WordQuizMenu;
 
 public class VocabTestItem extends SubMenuEntry{
 	
@@ -8,6 +8,6 @@ public class VocabTestItem extends SubMenuEntry{
 	}
 
 	public void run(){
-		WordTestControl.doTest();
+		new WordQuizMenu();
 	}
 }

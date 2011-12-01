@@ -1,5 +1,5 @@
 package menu;
-import kanjitester.KanjiTestControl;
+import kanjitester.KanjiQuizMenu;
 
 public class KanjiTestItem extends SubMenuEntry{
 	
@@ -8,6 +8,6 @@ public class KanjiTestItem extends SubMenuEntry{
 	}
 
 	public void run(){
-		KanjiTestControl.doTest();
+		new KanjiQuizMenu();
 	}
 }
