@@ -51,7 +51,8 @@ public class WordEditor{
 		
 		//adds the editable properties
 		JPanel proppanel = new JPanel();
-		frame.add(proppanel, BorderLayout.EAST);
+		JPanel sidepanel = new JPanel();
+		frame.add(sidepanel, BorderLayout.EAST);
 		JTextField romaji = new JTextField(15);
 		JTextField kana = new JTextField();
 		JTextField kanji = new JTextField();
@@ -75,7 +76,7 @@ public class WordEditor{
 		frame.add(listpanel, BorderLayout.WEST);
 		glist = new GraphicalList(wlist, romaji, kana, kanji, buttonlist);
 		JScrollPane scrollPane = new JScrollPane(glist);
-		scrollPane.setPreferredSize(new Dimension(200,400));
+		scrollPane.setPreferredSize(new Dimension(300,400));
 		listpanel.add(scrollPane);
 		
 		Font f = kanji.getFont();
@@ -84,6 +85,8 @@ public class WordEditor{
 			f2 = new Font("Dialog", f.getStyle(), f.getSize()+16);
 		}
 		kanji.setFont(f2);
+		sidepanel.add(proppanel);
+		sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.PAGE_AXIS));
 		proppanel.setLayout(new BoxLayout(proppanel, BoxLayout.PAGE_AXIS));
 		proppanel.add(new JLabel("Romaji writing"));
 		proppanel.add(romaji);
@@ -106,7 +109,7 @@ public class WordEditor{
 		butpanel.add(neww);
 		JButton delete = new DeleteButton(glist);
 		butpanel.add(delete);
-		proppanel.add(butpanel);
+		sidepanel.add(butpanel);
 		
 		frame.pack();
 		frame.setLocationRelativeTo(null);

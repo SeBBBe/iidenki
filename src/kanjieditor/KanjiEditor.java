@@ -47,7 +47,8 @@ public class KanjiEditor {
 		
 		//adds the editable properties
 		JPanel proppanel = new JPanel();
-		frame.add(proppanel, BorderLayout.EAST);
+		JPanel sidepanel = new JPanel();
+		frame.add(sidepanel, BorderLayout.EAST);
 		JTextField reading = new JTextField(15);
 		JTextField translation = new JTextField();
 
@@ -56,10 +57,12 @@ public class KanjiEditor {
 		frame.add(listpanel, BorderLayout.WEST);
 		glist = new GraphicalList(klist, reading, translation);
 		JScrollPane scrollPane = new JScrollPane(glist);
-		scrollPane.setPreferredSize(new Dimension(200,400));
+		scrollPane.setPreferredSize(new Dimension(300,400));
 		listpanel.add(scrollPane);
 		
+		sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.PAGE_AXIS));
 		proppanel.setLayout(new BoxLayout(proppanel, BoxLayout.PAGE_AXIS));
+		sidepanel.add(proppanel);
 		proppanel.add(new JLabel("Reading"));
 		proppanel.add(reading);
 		proppanel.add(new JLabel("Translation"));
@@ -72,6 +75,7 @@ public class KanjiEditor {
 		JButton delete = new DeleteButton(glist);
 		butpanel.add(delete);
 		proppanel.add(butpanel);
+		sidepanel.add(butpanel);
 		
 		frame.pack();
 		frame.setLocationRelativeTo(null);
