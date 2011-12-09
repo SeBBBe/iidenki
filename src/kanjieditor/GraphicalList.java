@@ -41,12 +41,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 */
 	public GraphicalList(ArrayList<Kanji> klist, JTextField reading, JTextField translation){
 		super();
-		Font f = getFont();
-		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+16);
-		if (System.getProperty("os.name").toLowerCase().equals("linux")){ //linux default font doesn't work for kanji in ubuntu, change to java default
-			f2 = new Font("Dialog", f.getStyle(), f.getSize()+16);
-		}
-		setFont(f2);
+		setFont(sys.FontManager.getKanjiFont(getFont()));
 		this.klist = klist;
 		this.reading = reading;
 		this.translation = translation;

@@ -21,9 +21,7 @@ public class InputField extends JTextField implements ActionListener{
 	public InputField(TestHandler th) {
 		this.th = th;
 		addActionListener(this);
-		Font f = getFont();
-		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+16);
-		setFont(f2);
+		setFont(sys.FontManager.getKanjiFont(getFont()));
 	}
 
 	/* (non-Javadoc)

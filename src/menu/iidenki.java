@@ -7,7 +7,7 @@ import javax.swing.UIManager;
 public class iidenki {
 	
 	/** Set true if packaging a JAR, will make pictures work */
-	public static final boolean IS_JAR = false;
+	public static final boolean IS_JAR = true;
 	
 	/**
 	 * invokes the main menu.

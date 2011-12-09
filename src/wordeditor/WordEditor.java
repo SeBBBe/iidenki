@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -78,12 +79,7 @@ public class WordEditor{
 		scrollPane.setPreferredSize(new Dimension(300,400));
 		listpanel.add(scrollPane);
 		
-		Font f = kanji.getFont();
-		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+16);
-		if (System.getProperty("os.name").toLowerCase().equals("linux")){ //linux default font doesn't work for kanji in ubuntu, change to java default
-			f2 = new Font("Dialog", f.getStyle(), f.getSize()+16);
-		}
-		kanji.setFont(f2);
+		kanji.setFont(sys.FontManager.getKanjiFont(kanji.getFont()));
 		sidepanel.add(proppanel);
 		sidepanel.setLayout(new BoxLayout(sidepanel, BoxLayout.PAGE_AXIS));
 		proppanel.setLayout(new BoxLayout(proppanel, BoxLayout.PAGE_AXIS));

@@ -34,12 +34,7 @@ public class KanjiTester extends JFrame{
 		
 		panel.add(new JLabel("What is the reading of this kanji (compound)?"));
 		JLabel wt = new JLabel();
-		Font f = wt.getFont();
-		Font f2 = new Font(f.getFontName(), f.getStyle(), f.getSize()+36);
-		if (System.getProperty("os.name").toLowerCase().equals("linux")){ //linux default font doesn't work for kanji in ubuntu, change to java default
-			f2 = new Font("Dialog", f.getStyle(), f.getSize()+16);
-		}
-		wt.setFont(f2);
+		wt.setFont(sys.FontManager.getKanjiFont(wt.getFont()));
 		panel.add(wt);
 		JButton[] buttons = new JButton[5];
 		for (int i = 0; i < 5; i++){
