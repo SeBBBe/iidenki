@@ -2,8 +2,10 @@ package wordtester;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
 import vocab.Word;
 
 

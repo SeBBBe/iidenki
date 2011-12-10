@@ -1,6 +1,5 @@
 package kanjitester;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.io.File;
@@ -10,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import vocab.Kanji;
 import wordtester.Tester;
 

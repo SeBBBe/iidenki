@@ -1,7 +1,6 @@
 package wordtester;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 import javax.swing.JOptionPane;

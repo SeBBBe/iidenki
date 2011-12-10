@@ -9,15 +9,15 @@ import javax.swing.JButton;
 /**
  * The vocabulary submenu button.
  */
-public class VocabSubmenuButton extends JButton implements ActionListener{
+public class GamesSubmenuButton extends JButton implements ActionListener{
 
 	private static final long serialVersionUID = 3830053478257260819L;
 
 	/**
 	 * Instantiates a new vocabulary submenu button.
 	 */
-	public VocabSubmenuButton(){
-		super("Vocabulary");
+	public GamesSubmenuButton(){
+		super("Games");
 		addActionListener(this);
 	}
 
@@ -26,8 +26,7 @@ public class VocabSubmenuButton extends JButton implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent arg0) {
 		ArrayList<SubMenuEntry> entries = new ArrayList<SubMenuEntry>();
-		entries.add(new VocabTestItem());
-		entries.add(new WordEditorItem());
+		entries.add(new HangmanItem());
 		new SubMenu(entries);
 	}
 }

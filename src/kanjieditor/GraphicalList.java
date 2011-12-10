@@ -1,5 +1,4 @@
 package kanjieditor;
-import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -9,6 +8,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 import vocab.Kanji;
 
 

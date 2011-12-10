@@ -8,6 +8,7 @@ import java.util.Random;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+
 import vocab.Kanji;
 
 /**

@@ -2,6 +2,7 @@ package menu;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -48,6 +49,7 @@ public class MainMenu {
 		butpanel.add(new KanjiSubmenuButton());
 		butpanel.add(new VocabSubmenuButton());
 		butpanel.add(new GrammarSubmenuButton());
+		butpanel.add(new GamesSubmenuButton());
 		
 		frame.pack();
 	    frame.setLocationRelativeTo(null);
