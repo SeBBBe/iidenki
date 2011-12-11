@@ -24,6 +24,7 @@ public class InputField extends JTextField implements ActionListener{
 		this.hangman = hangman;
 		setFont(FontManager.getKanjiFont(getFont()));
 		partial.setText(gh.partialText());
+		wrongfield.setText(gh.wrongText());
 		addActionListener(this);
 	}
 
@@ -31,6 +32,9 @@ public class InputField extends JTextField implements ActionListener{
 		int i = gh.guess(getText());
 		if (i == 0){
 			hangman.nextLevel();
+		}
+		if (i == 3){
+			JOptionPane.showMessageDialog(hangman.frame, "Please enter one character only!");
 		}
 		partial.setText(gh.partialText());
 		wrongfield.setText(gh.wrongText());
@@ -41,7 +45,7 @@ public class InputField extends JTextField implements ActionListener{
 	private void checkWin() {
 		String p = gh.partialText();
 		if (!p.contains("_")){
-			JOptionPane.showMessageDialog(null, gh.winText());
+			JOptionPane.showMessageDialog(hangman.frame, gh.winText());
 			setEnabled(false);
 			hangman.level = 0;
 			hangman.nextLevel();

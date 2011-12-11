@@ -31,7 +31,7 @@ public class Hangman {
 	private JLabel picLabel;
 	private ArrayList<Word> newlist;
 	public int level;
-	private JFrame frame;
+	public JFrame frame;
 	private InputField ifi;
 	private GameHandler gh;
 	
@@ -76,7 +76,7 @@ public class Hangman {
 		partial.setFont(FontManager.getKanjiFont(partial.getFont()));
 		
 		ifi = new InputField(gh, wrongfield, partial, this);
-		sidepanel.add(new JLabel("Please input one character for your guess"));
+		sidepanel.add(new JLabel("Please input one kana for your guess"));
 		sidepanel.add(partial);
 		sidepanel.add(ifi);
 		sidepanel.add(wrongfield);

@@ -37,6 +37,9 @@ public class GameHandler {
 	}
 	
 	public String wrongText(){
+		if (wrong.size() == 0){
+			return "";
+		}
 		String w = "wrong: ";
 		for (String a : wrong){
 			w = w + a + " ";
@@ -45,6 +48,9 @@ public class GameHandler {
 	}
 	
 	public int guess(String guess){
+		if (guess.length() != 1){
+			return 3;
+		}
 		if (wrong.contains(guess) || correct.contains(guess)){
 			return 2;
 		}

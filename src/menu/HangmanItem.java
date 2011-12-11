@@ -4,7 +4,7 @@ import hangman.Hangman;
 public class HangmanItem extends SubMenuEntry{
 	
 	public HangmanItem(){
-		super("Hangman","hangman_menu.gif");
+		super("Hangman (kana)","hangman_menu.gif");
 	}
 
 	public void run(){
