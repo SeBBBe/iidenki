@@ -28,7 +28,8 @@ public class GameHandler {
 		for (int i = 0; i < currentword.getKana().length(); i++){
 			partialtext = partialtext + "_ ";
 		}
-		System.out.println(currentword.getKana());
+		correct = new ArrayList<String>();
+		wrong = new ArrayList<String>();
 	}
 	
 	public String partialText(){
@@ -67,7 +68,6 @@ public class GameHandler {
 				partialtext = partialtext + "_ ";
 			}
 		}
-		System.out.println(partialtext);
 	}
 
 	public Object winText() {

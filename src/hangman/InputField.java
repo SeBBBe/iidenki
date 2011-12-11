@@ -43,6 +43,17 @@ public class InputField extends JTextField implements ActionListener{
 		if (!p.contains("_")){
 			JOptionPane.showMessageDialog(null, gh.winText());
 			setEnabled(false);
+			hangman.level = 0;
+			hangman.nextLevel();
+			generateNew();
 		}
+	}
+
+	public void generateNew() {
+		gh.generateNew();
+		partial.setText(gh.partialText());
+		wrongfield.setText(gh.wrongText());
+		setText("");
+		setEnabled(true);
 	}
 }

@@ -30,7 +30,7 @@ public class Hangman {
 	private ImageIcon icon;
 	private JLabel picLabel;
 	private ArrayList<Word> newlist;
-	private int level;
+	public int level;
 	private JFrame frame;
 	private InputField ifi;
 	private GameHandler gh;
@@ -107,7 +107,12 @@ public class Hangman {
 				picLabel = new JLabel(icon);
 				frame.add(picLabel);
 				frame.setVisible(true);
-				if (level == 10){JOptionPane.showMessageDialog(null, gh.loseText());}
+				if (level == 10){
+					JOptionPane.showMessageDialog(frame, gh.loseText());
+					level = 0;
+					nextLevel();
+					ifi.generateNew();
+				}
 			}
 		 };
 
