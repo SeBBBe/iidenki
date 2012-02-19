@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -41,7 +42,7 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 	    chooser.setDialogTitle("Open kanji list");
 	    chooser.showOpenDialog(null);
 	    File file = chooser.getSelectedFile();
-	    ArrayList<Kanji> newlist;
+	    List<Kanji> newlist;
 	    if (file == null){return;}
 		try{
 			newlist = KanjiEditorControl.loadFromFile(file);

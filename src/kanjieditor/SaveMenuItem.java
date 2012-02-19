@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -20,16 +21,16 @@ public class SaveMenuItem extends JMenuItem implements ActionListener {
 	private static final long serialVersionUID = -3364725120224414027L;
 	
 	/** The klist. */
-	private ArrayList<Kanji> klist;
+	private List<Kanji> klist;
 	
 	/**
 	 * Instantiates a new save menu item.
 	 *
-	 * @param klist the kanji list
+	 * @param klist2 the kanji list
 	 */
-	public SaveMenuItem(ArrayList<Kanji> klist){
+	public SaveMenuItem(List<Kanji> klist2){
 		super("Save as");
-		this.klist = klist;
+		this.klist = klist2;
 		addActionListener(this);
 	}
 	

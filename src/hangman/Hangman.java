@@ -6,30 +6,26 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
+import menu.iidenki;
 import sys.FontManager;
 import vocab.Word;
-
-import menu.SubMenuEntry;
-import menu.iidenki;
 
 public class Hangman {
 	
 	private ImageIcon icon;
 	private JLabel picLabel;
-	private ArrayList<Word> newlist;
+	private List<Word> newlist;
 	public int level;
 	public JFrame frame;
 	private InputField ifi;
@@ -44,7 +40,7 @@ public class Hangman {
 	    if (file == null){return;}
 		try{
 			ObjectInputStream in=new ObjectInputStream(new FileInputStream(file));
-			newlist = (ArrayList<Word>)in.readObject();
+			newlist = (List<Word>)in.readObject();
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, "Error loading file!");
 			e.printStackTrace();
