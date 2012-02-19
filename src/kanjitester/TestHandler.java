@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.JButton;
@@ -21,14 +22,13 @@ public class TestHandler implements ActionListener {
 	
 	private JLabel wt;
 	private JLabel stats;
-	private int currentindex;
 	private int correct;
 	private int total;
-	private ArrayList<Kanji> testlist;
+	private List<Kanji> testlist;
 	private Kanji currentword;
 	private KanjiTester kanjiTester;
-	private Tester tester;
-	private ArrayList<Kanji> wlist;
+	private Tester<Kanji> tester;
+	private List<Kanji> wlist;
 	private JButton[] buttons;
 	private boolean eng;
 	
@@ -42,7 +42,7 @@ public class TestHandler implements ActionListener {
 	 * @param tester the tester to use for this test
 	 * @param buttons 
 	 */
-	public TestHandler(ArrayList<Kanji> wlist, JLabel wt, JLabel stats, KanjiTester kanjiTester, Tester tester, JButton[] buttons, boolean eng){
+	public TestHandler(List<Kanji> wlist, JLabel wt, JLabel stats, KanjiTester kanjiTester, Tester<Kanji> tester, JButton[] buttons, boolean eng){
 		this.wt = wt;
 		this.stats = stats;
 		this.kanjiTester = kanjiTester;
@@ -50,7 +50,6 @@ public class TestHandler implements ActionListener {
 		this.tester = tester;
 		this.buttons = buttons;
 		this.eng = eng;
-		currentindex = -1;
 		correct = 0;
 		total = 0;
 		testlist = new ArrayList<Kanji>();

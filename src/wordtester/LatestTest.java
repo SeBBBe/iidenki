@@ -1,6 +1,7 @@
 package wordtester;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -10,9 +11,9 @@ import vocab.RightWrong;
 /**
  * Conducts a test of the latest items
  */
-public class LatestTest<E extends RightWrong> implements Tester{
+public class LatestTest<E extends RightWrong> implements Tester<E> {
 
-	private ArrayList<E> testlist;
+	private List<E> testlist;
 	private int currentindex;
 	private E currentword;
 	
@@ -21,7 +22,7 @@ public class LatestTest<E extends RightWrong> implements Tester{
 	 *
 	 * @param wlist the WordList
 	 */
-	public LatestTest(ArrayList<E> wlist){
+	public LatestTest(List<E> wlist){
 		String num = JOptionPane.showInputDialog(null, "This test will present you with the latest words. How many words would you like to type?");
 		int n = 10;
 		try{

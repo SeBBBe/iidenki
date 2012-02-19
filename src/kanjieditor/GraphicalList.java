@@ -1,6 +1,7 @@
 package kanjieditor;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JList;
 import javax.swing.JTextField;
@@ -27,7 +28,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	private JTextField translation;
 	
 	/** The klist. */
-	public ArrayList<Kanji> klist;
+	public List<Kanji> klist;
 	
 	/** The locked. */
 	private boolean locked;
@@ -35,14 +36,14 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	/**
 	 * Instantiates a new graphical list.
 	 *
-	 * @param klist the klist
+	 * @param klist2 the klist
 	 * @param reading the reading
 	 * @param translation the translation
 	 */
-	public GraphicalList(ArrayList<Kanji> klist, JTextField reading, JTextField translation){
+	public GraphicalList(List<Kanji> klist2, JTextField reading, JTextField translation){
 		super();
 		setFont(sys.FontManager.getKanjiFont(getFont()));
-		this.klist = klist;
+		this.klist = klist2;
 		this.reading = reading;
 		this.translation = translation;
 		updateList();
@@ -127,7 +128,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * Update list with the kanji list.
 	 */
 	public void updateList() {
-		ArrayList list2 = new ArrayList();
+		List<Kanji> list2 = new ArrayList<Kanji>();
 		list2.addAll(klist);
 		Collections.reverse(list2);
 		setListData(list2.toArray());
