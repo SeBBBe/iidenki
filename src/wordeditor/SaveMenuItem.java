@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -16,14 +17,14 @@ import vocab.Word;
  */
 public class SaveMenuItem extends JMenuItem implements ActionListener {
 	
-	private ArrayList<Word> wlist;
+	private List<Word> wlist;
 	
 	/**
 	 * Instantiates a new save menu item.
 	 *
 	 * @param wlist the WordList
 	 */
-	public SaveMenuItem(ArrayList<Word> wlist){
+	public SaveMenuItem(List<Word> wlist){
 		super("Save as");
 		this.wlist = wlist;
 		addActionListener(this);

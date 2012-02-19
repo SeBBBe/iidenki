@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
@@ -37,7 +38,7 @@ public class OpenMenuItem extends JMenuItem implements ActionListener {
 	    chooser.setDialogTitle("Open vocabulary list");
 	    chooser.showOpenDialog(null);
 	    File file = chooser.getSelectedFile();
-	    ArrayList<Word> newlist;
+	    List<Word> newlist;
 	    if (file == null){return;}
 		try{
 			newlist = WordEditorControl.loadFromFile(file);
