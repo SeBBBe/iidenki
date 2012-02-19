@@ -1,6 +1,6 @@
 package vocab;
 
-public abstract class RightWrong implements Comparable{
+public abstract class RightWrong implements Comparable<RightWrong> {
 	public int right;
 	public int wrong;
 	
@@ -9,8 +9,7 @@ public abstract class RightWrong implements Comparable{
 		wrong = 0;
 	}
 	
-	public int compareTo(Object arg0) {
-		RightWrong otherword = (RightWrong)arg0;
+	public int compareTo(RightWrong otherword) {
 		return (right - wrong) - (otherword.right - otherword.wrong);
 	}
 }
