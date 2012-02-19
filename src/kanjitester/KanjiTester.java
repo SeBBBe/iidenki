@@ -3,7 +3,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,10 +19,10 @@ import wordtester.Tester;
  */
 public class KanjiTester extends JFrame{
 	
-	public ArrayList<Kanji> klist;
+	public List<Kanji> klist;
 	public File file;
 
-	public KanjiTester(ArrayList<Kanji> klist, Tester tester, File file, boolean eng){
+	public KanjiTester(List<Kanji> klist, Tester<Kanji> tester, File file, boolean eng){
 		super("Kanji test");
 		this.file = file;
 		this.klist = klist;

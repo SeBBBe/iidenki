@@ -2,6 +2,7 @@ package kanjieditor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -23,7 +24,7 @@ import vocab.Kanji;
 public class KanjiEditor {
 	
 	/** The kanji list. */
-	public ArrayList<Kanji> klist;
+	public List<Kanji> klist;
 	
 	/** The graphical list. */
 	public GraphicalList glist;
@@ -87,7 +88,7 @@ public class KanjiEditor {
 	 *
 	 * @param newlist the new list
 	 */
-	public void load(ArrayList<Kanji> newlist) {
+	public void load(List<Kanji> newlist) {
 		klist.clear();
 		klist.addAll(newlist);
 		glist.updateList();

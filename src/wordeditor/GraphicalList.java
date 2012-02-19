@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import javax.swing.JList;
 import javax.swing.JRadioButton;
@@ -24,7 +25,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	private JTextField romaji;
 	private JTextField kana;
 	private JTextField kanji;
-	public ArrayList wlist;
+	public List<Word> wlist;
 	private boolean locked;
 	private JRadioButton[] buttonlist;
 	
@@ -37,7 +38,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * @param kanji the kanji field
 	 * @param buttonlist list of radio buttons to watch
 	 */
-	public GraphicalList(ArrayList wlist, JTextField romaji, JTextField kana, JTextField kanji, JRadioButton[] buttonlist){
+	public GraphicalList(List<Word> wlist, JTextField romaji, JTextField kana, JTextField kanji, JRadioButton[] buttonlist){
 		super();
 		this.wlist = wlist;
 		this.romaji = romaji;
@@ -156,7 +157,7 @@ public class GraphicalList extends JList implements ListSelectionListener, Docum
 	 * Update list with the WordList.
 	 */
 	public void updateList() {
-		ArrayList list2 = new ArrayList();
+		List<Word> list2 = new ArrayList<Word>();
 		list2.addAll(wlist);
 		Collections.reverse(list2);
 		setListData(list2.toArray());

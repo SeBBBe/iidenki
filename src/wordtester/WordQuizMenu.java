@@ -174,7 +174,7 @@ public class WordQuizMenu extends javax.swing.JFrame {
     		resetList(newlist);
     	}
     	dispose();
-    	Tester test = new SimpleTest<Word>(newlist);
+    	Tester<Word> test = new SimpleTest<Word>(newlist);
 		if(jComboBox1.getSelectedItem() == possibilities[0]){
 			test = new SimpleTest<Word>(newlist);
 		}else if(jComboBox1.getSelectedItem() == possibilities[1]){

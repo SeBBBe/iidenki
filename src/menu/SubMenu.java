@@ -127,7 +127,6 @@ public class SubMenu implements ActionListener{
 	}
 
 	private void executeSelection() {
-		SubMenuEntry entry = null;
 		selected = bg.getSelection().getActionCommand();
 		Runnable runSelection = new Runnable(){
 			public void run(){

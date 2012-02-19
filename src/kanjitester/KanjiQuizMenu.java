@@ -11,12 +11,15 @@
 
 package kanjitester;
 
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import vocab.Kanji;
@@ -25,9 +28,9 @@ import wordtester.LatestTest;
 import wordtester.SimpleTest;
 import wordtester.Tester;
 
-public class KanjiQuizMenu extends javax.swing.JFrame {
+public class KanjiQuizMenu extends JFrame {
 
-	private ArrayList<Kanji> newlist;
+	private List<Kanji> newlist;
 	private File file;
 	private String[] possibilities = {"Test all kanji", "Test the most difficult kanji", "Test the latest kanji"};
 
@@ -142,11 +145,11 @@ public class KanjiQuizMenu extends javax.swing.JFrame {
         pack();
     }
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jCheckBox2ActionPerformed(ActionEvent evt) {
         //Reset scores
     }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton3ActionPerformed(ActionEvent evt) {
         //Browse button
     	JFileChooser chooser = new JFileChooser();
 	    chooser.setDialogTitle("Open kanji list");
@@ -166,18 +169,18 @@ public class KanjiQuizMenu extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
     }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jComboBox1ActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed(ActionEvent evt) {
         // OK button
     	if (file == null){JOptionPane.showMessageDialog(null, "No file selected!"); return;}
     	if (jCheckBox2.isSelected()){
     		resetList(newlist);
     	}
     	dispose();
-		Tester test = new SimpleTest<Kanji>(newlist);
+		Tester<Kanji> test = new SimpleTest<Kanji>(newlist);
 		if(jComboBox1.getSelectedItem() == possibilities[0]){
 			test = new SimpleTest<Kanji>(newlist);
 		}else if(jComboBox1.getSelectedItem() == possibilities[1]){
@@ -188,11 +191,11 @@ public class KanjiQuizMenu extends javax.swing.JFrame {
     	new KanjiTester(newlist, test, file, jCheckBox1.isSelected());
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed(ActionEvent evt) {
         dispose();
     }
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jCheckBox1ActionPerformed(ActionEvent evt) {
         // English reading
     }
     
@@ -201,7 +204,7 @@ public class KanjiQuizMenu extends javax.swing.JFrame {
 	 *
 	 * @param newlist the list to reset
 	 */
-	private static void resetList(ArrayList<Kanji> newlist) {
+	private static void resetList(List<Kanji> newlist) {
 		if (newlist == null) {JOptionPane.showMessageDialog(null, "Can't reset scores; invalid list selected"); return;}
 		int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to reset the scores in this list?\nThis information is used to determine which kanji are the most difficult.", "Confirm reset", JOptionPane.YES_NO_OPTION);
 		if (confirm == 0){

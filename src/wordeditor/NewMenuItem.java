@@ -2,9 +2,12 @@ package wordeditor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+
+import vocab.Word;
 
 
 /**
@@ -31,7 +34,7 @@ public class NewMenuItem extends JMenuItem implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		int confirm = JOptionPane.showConfirmDialog(null, "Clear the vocabulary list and create a new one?", "Create new list", JOptionPane.YES_NO_OPTION);
 		if (confirm == 0){
-			ArrayList newlist = new ArrayList();
+			List<Word> newlist = new ArrayList<Word>();
 			editor.load(newlist);
 		}
 	}
