@@ -51,7 +51,6 @@ public class Hangman {
 		}
 		
 		frame = new JFrame("Hangman");
-		frame.setResizable(false);
 		JPanel panel = new JPanel();
 		frame.add(panel);
 		

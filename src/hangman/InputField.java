@@ -22,7 +22,7 @@ public class InputField extends JTextField implements ActionListener{
 		this.wrongfield = wrongfield;
 		this.partial = partial;
 		this.hangman = hangman;
-		setFont(FontManager.getKanjiFont(getFont()));
+		setFont(FontManager.getHangmanFont(getFont()));
 		partial.setText(gh.partialText());
 		wrongfield.setText(gh.wrongText());
 		addActionListener(this);
