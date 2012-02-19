@@ -2,6 +2,7 @@ package wordtester;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 import vocab.RightWrong;
@@ -9,9 +10,9 @@ import vocab.RightWrong;
 /**
  * Conducts a test of all words in the vocabulary, in random order
  */
-public class SimpleTest<E extends RightWrong> implements Tester{
+public class SimpleTest<E extends RightWrong> implements Tester<E> {
 
-	private ArrayList<E> testlist;
+	private List<E> testlist;
 	private int currentindex;
 	private E currentword;
 	
@@ -20,7 +21,7 @@ public class SimpleTest<E extends RightWrong> implements Tester{
 	 *
 	 * @param wlist the WordList
 	 */
-	public SimpleTest(ArrayList<E> wlist){
+	public SimpleTest(List<E> wlist){
 		testlist = new ArrayList<E>();
 		testlist.addAll((Collection<? extends E>) wlist);
 		currentindex = -1;

@@ -2,6 +2,7 @@ package wordtester;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -13,9 +14,9 @@ import vocab.RightWrong;
  * Conducts a dynamic test, testing the n most difficult words
  * based on previous performance by the user.
  */
-public class DynamicTest<E extends RightWrong> implements Tester{
+public class DynamicTest<E extends RightWrong> implements Tester<E> {
 
-	private ArrayList<E> testlist;
+	private List<E> testlist;
 	private int currentindex;
 	private E currentword;
 	
@@ -24,14 +25,14 @@ public class DynamicTest<E extends RightWrong> implements Tester{
 	 *
 	 * @param wlist the WordList containing the complete vocabulary
 	 */
-	public DynamicTest(Collection wlist){
+	public DynamicTest(Collection<E> wlist){
 		testlist = new ArrayList<E>();
 		buildList(wlist);
 		currentindex = -1;
 		currentword = null;
 	}
 
-	private void buildList(Collection wlist) {
+	private void buildList(Collection<E> wlist) {
 		testlist.addAll((Collection<? extends E>) wlist);
 		String num = JOptionPane.showInputDialog(null, "This test will present you with the most difficult words based on your\nprevious performance. How many words would you like to type?");
 		int n = 10;

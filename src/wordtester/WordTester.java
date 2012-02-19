@@ -5,7 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -25,7 +25,7 @@ public class WordTester extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 5461112199107395509L;
 	
 	/** The WordList used in the current test */
-	public ArrayList<Word> wlist;
+	public List<Word> wlist;
 	
 	/** The file containing the current list of words */
 	public File file;
@@ -40,7 +40,7 @@ public class WordTester extends JFrame implements ActionListener {
 	 * @param tester the selected test mode
 	 * @param file the file containing the word list
 	 */
-	public WordTester(ArrayList wlist, Tester tester, File file, boolean testtype){
+	public WordTester(List<Word> wlist, Tester<Word> tester, File file, boolean testtype){
 		super("Vocabulary test");
 		this.file = file;
 		this.wlist = wlist;
