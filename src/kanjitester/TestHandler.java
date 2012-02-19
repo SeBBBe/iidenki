@@ -22,7 +22,6 @@ public class TestHandler implements ActionListener {
 	
 	private JLabel wt;
 	private JLabel stats;
-	private int currentindex;
 	private int correct;
 	private int total;
 	private List<Kanji> testlist;
@@ -51,7 +50,6 @@ public class TestHandler implements ActionListener {
 		this.tester = tester;
 		this.buttons = buttons;
 		this.eng = eng;
-		currentindex = -1;
 		correct = 0;
 		total = 0;
 		testlist = new ArrayList<Kanji>();
