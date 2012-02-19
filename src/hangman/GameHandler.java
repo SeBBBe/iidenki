@@ -1,19 +1,20 @@
 package hangman;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import vocab.Word;
 
 public class GameHandler {
 
-	private ArrayList<Word> list;
-	private ArrayList<String> correct;
-	private ArrayList<String> wrong;
+	private List<Word> list;
+	private List<String> correct;
+	private List<String> wrong;
 	private Word currentword;
 	private String partialtext;
 	
-	public GameHandler(ArrayList<Word> list){
+	public GameHandler(List<Word> list){
 		this.list = list;
 		correct = new ArrayList<String>();
 		wrong = new ArrayList<String>();

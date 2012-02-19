@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Represents a word and its various translations
  */
-public class Word extends RightWrong implements Serializable, Comparable{
+public class Word extends RightWrong implements Serializable {
 	
 	private static final long serialVersionUID = 393701205076555364L;
 	private String word;
@@ -127,8 +127,7 @@ public class Word extends RightWrong implements Serializable, Comparable{
 	/* (non-Javadoc)
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	public int compareTo(Object arg0) {
-		Word otherword = (Word)arg0;
+	public int compareTo(Word otherword) {
 		return (right - wrong) - (otherword.right - otherword.wrong);
 	}
 }

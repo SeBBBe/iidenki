@@ -55,12 +55,4 @@ public class Kanji extends RightWrong implements Serializable {
 			return text.equals(translation);
 		}
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	public int compareTo(Object arg0) {
-	    Kanji otherword = (Kanji)arg0;
-		return (right - wrong) - (otherword.right - otherword.wrong);
-	}
 }

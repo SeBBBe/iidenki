@@ -2,6 +2,7 @@ package wordeditor;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -25,7 +26,7 @@ import vocab.Word;
 public class WordEditor{
 	
 	/** The WordList */
-	ArrayList<Word> wlist;
+	List<Word> wlist;
 	
 	/** The GraphicalList */
 	GraphicalList glist;
@@ -116,7 +117,7 @@ public class WordEditor{
 	 *
 	 * @param newlist the new list
 	 */
-	public void load(ArrayList newlist) {
+	public void load(List<Word> newlist) {
 		wlist.clear();
 		wlist.addAll(newlist);
 		glist.updateList();
