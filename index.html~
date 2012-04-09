@@ -36,6 +36,14 @@ suite has support for entering and training vocabulary, kanji and kanji
 compounds and a grammar reference part. There's also a hangman game for
 practicing vocabulary.</p>
 <br />
+
+<p>iidenki is now available for Android!</p>
+<a href="http://play.google.com/store/apps/details?id=iidenki.android">
+  <img alt="Android app on Google Play"
+       src="http://www.android.com/images/brand/android_app_on_play_logo_large.png" />
+</a>
+<br />
+
 <a href="Screenshot.png"><p><img alt="Download" src="Screenshot.png" width="300" height="188" /></p></a>
 <p>click image to magnify</p>
 <br />
@@ -66,15 +74,6 @@ student with an interest in Japanese. Comments and suggestions are always highly
 
 <p>iidenki runs on Linux, Mac OS X and Windows. <a href="http://www.java.com">Java</a>
 is required.</p>
-<br />
-
-<p>iidenki is also available for Android!</p>
-<a href="http://play.google.com/store/apps/details?id=iidenki.android">
-  <img alt="Android app on Google Play"
-       src="http://www.android.com/images/brand/android_app_on_play_logo_large.png" />
-</a>
-<br />
-
 </div>
 <!-- End Content -->
 <!-- Begin Footer -->
